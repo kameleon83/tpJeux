@@ -1,6 +1,7 @@
 package fr.joeltroch.m2iformation.jeu;
 
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Classe principale de l'application.
@@ -16,6 +17,16 @@ public class Main {
 	 */
 	public static Scanner getScanner() {
 		return SCANNER;
+	}
+
+	/**
+	 * Génère un nombre aléatoire entre un minimum et un maximum spécifique.
+	 * @param min Le nombre minimum.
+	 * @param max Le nombre maximum.
+	 * @return Le nombre aléatoire généré.
+	 */
+	public static int genererNombreAleatoire(int min, int max) {
+		return ThreadLocalRandom.current().nextInt(min, max + 1);
 	}
 
 	/**
