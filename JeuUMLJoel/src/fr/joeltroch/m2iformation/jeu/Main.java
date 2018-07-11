@@ -1,6 +1,14 @@
 package fr.joeltroch.m2iformation.jeu;
 
 import fr.joeltroch.m2iformation.jeu.caracteristiques.Caracteristique;
+import fr.joeltroch.m2iformation.jeu.equipements.EquipementArmeEpee;
+import fr.joeltroch.m2iformation.jeu.equipements.EquipementObjetPotionMana;
+import fr.joeltroch.m2iformation.jeu.equipements.EquipementObjetPotionVie;
+import fr.joeltroch.m2iformation.jeu.lieux.Lieu;
+import fr.joeltroch.m2iformation.jeu.magie.MagieSortGlace;
+import fr.joeltroch.m2iformation.jeu.magie.MagieSortSoins;
+import fr.joeltroch.m2iformation.jeu.lieux.LieuArene;
+import fr.joeltroch.m2iformation.jeu.lieux.LieuVille;
 import fr.joeltroch.m2iformation.jeu.personnages.Personnage;
 import fr.joeltroch.m2iformation.jeu.personnages.PersonnageJoueur;
 
@@ -50,6 +58,39 @@ public class Main {
 
 	public static int getVagueActuelle() {
 		return vagueActuelle;
+	}
+
+	/**
+	 * Crée un joueur et l'initialise (demande du nom, attribution des compétences...)
+	 * @return Le joueur initialisé.
+	 */
+	private static PersonnageJoueur creerJoueur() {
+		// Demande le nom du joueur
+		System.out.println("Votre nom ?");
+		final String nomJoueur = getScanner().nextLine();
+
+		PersonnageJoueur joueur = new PersonnageJoueur(nomJoueur);
+
+		System.out.println("\nBienvenue \"" + nomJoueur + "\" !");
+		System.out.println("Vous allez dépenser " + Configuration.JOUEUR_DEPART_QUANTITE_POINTS_CARACTERISTIQUES +
+				" points de compétences pour définir votre personnage.");
+		System.out.println("Choissisez bien car vous ne pourrez pas revenir en arrière !\n");
+		System.out.println("La Force (FOR) détermine votre capacité à manipuler les armes.");
+		System.out.println("L'Intelligence (INT) détermine votre puissance de manipulation des sorts de magie.");
+		System.out.println("La Mémoire (FOR) détermine votre capacité à manipuler des sorts de magie.");
+		System.out.println("La Vitalité (VIT) détermine votre renforcement aux dégâts adverses.\n");
+
+		depenserPointsCompetences(Configuration.JOUEUR_DEPART_QUANTITE_POINTS_CARACTERISTIQUES, joueur);
+
+		final int santeMax = joueur.getSanteMax();
+		final int manaMax = joueur.getManaMax();
+		joueur.setSante(santeMax);
+		joueur.setMana(manaMax);
+
+		donnerEquipementDeDepart(joueur);
+		donnerSortsDeDepart(joueur);
+
+		return joueur;
 	}
 
 	/**
@@ -106,6 +147,28 @@ public class Main {
 	}
 
 	/**
+	 * Donne l'équipement de départ à un joueur spécifique.
+	 * @param joueur Le joueur concerné.
+	 */
+	private static void donnerEquipementDeDepart(PersonnageJoueur joueur) {
+		System.out.println("\nVous allez commencer une épée de faible qualité trouvée sur un champ de bataille abandonné.");
+		System.out.println("Votre soeur vous a également confectionné une potion de soins et une potion de mana.");
+		joueur.getListeEquipements().add(new EquipementArmeEpee());
+		joueur.getListeEquipements().add(new EquipementObjetPotionVie());
+		joueur.getListeEquipements().add(new EquipementObjetPotionMana());
+	}
+
+	/**
+	 * Donne les sorts de départ à un joueur spécifique.
+	 * @param joueur Le joueur concerné.
+	 */
+	private static void donnerSortsDeDepart(PersonnageJoueur joueur) {
+		System.out.println("Durant votre enfance, votre grand-père vous a appris l'usage des sorts \"Soins\" et \"Glace\".");
+		joueur.getListeSorts().add(new MagieSortSoins());
+		joueur.getListeSorts().add(new MagieSortGlace());
+	}
+
+	/**
 	 * Génère un nombre aléatoire entre un minimum et un maximum spécifique.
 	 * @param min Le nombre minimum.
 	 * @param max Le nombre maximum.
@@ -124,8 +187,38 @@ public class Main {
 	 * @param args Arguments de la ligne de commande.
 	 */
 	public static void main(String[] args) {
-		// TODO
+		// Initialise le joueur
+		PersonnageJoueur joueur = creerJoueur();
 
+		// Initialise les lieux
+		int lieuActuel = 0;
+		List<Lieu> lieux = new ArrayList<>();
+		lieux.add(new LieuVille("Wolfenstein"));
+		lieux.add(new LieuArene("Arène de la Badassitude"));
+
+		// Introduction
+		System.out.println("\nVous allez commencer dans la ville de \"Wolfenstein\" et la défendre de ses démons dans \"l'Arène de la Badassitude\".");
+		System.out.println("Dès que vous êtes prêt(e), appuyez sur une touche et survivez le plus longtemps possible !");
+		getScanner().nextLine();
+
+		// Boucle principale du jeu
+		System.out.println("Vague #" + vagueActuelle);
+		boolean partieTerminee = joueur.getSante() < 0;
+		while (!partieTerminee) {
+			lieux.get(lieuActuel).parcourir(joueur);
+
+			// Passe au lieu suivant (ou revient au point de départ en incrémentant la vague si on a tout fait)
+			lieuActuel++;
+			if (lieuActuel >= lieux.size()) {
+				lieuActuel = 0;
+			}
+
+			partieTerminee = joueur.getSante() <= 0;
+		}
+
+		// Fin du jeu
+		System.out.println("\"" + joueur.toString() + "\" est mort !");
+		System.out.println("Partie terminée à la vague numéro " + vagueActuelle);
 		getScanner().close();
 	}
 }
