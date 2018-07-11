@@ -1,6 +1,7 @@
 package fr.joeltroch.m2iformation.jeu;
 
 import fr.joeltroch.m2iformation.jeu.caracteristiques.Caracteristique;
+import fr.joeltroch.m2iformation.jeu.personnages.Personnage;
 import fr.joeltroch.m2iformation.jeu.personnages.PersonnageJoueur;
 
 import java.util.ArrayList;
@@ -15,6 +16,26 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
 	/** Unique instance de la classe Scanner pour toute l'application (singleton). */
 	private static final Scanner SCANNER = new Scanner(System.in);
+
+	/**
+	 * Retourne une liste des cibles potentielles.
+	 * @param personnages La liste des personnages.
+	 * @return La liste des cibles potentielles.
+	 */
+	public static List<Personnage> getListeCiblesPossibles(List<Personnage> personnages) {
+		List<Personnage> resultat = new ArrayList<>();
+
+		int j = 1;
+		for (Personnage personnageActuel : personnages) {
+			if (personnageActuel.getSante() > 0) {
+				resultat.add(personnageActuel);
+				System.out.println(j + ". " + personnageActuel.toString());
+				j++;
+			}
+		}
+
+		return resultat;
+	}
 
 	/**
 	 * Retoune la seule instance de la classe Scanner (singleton).
