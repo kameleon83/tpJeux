@@ -22,7 +22,8 @@ public class StatistiqueDegatsPhysique extends StatistiqueDegats {
 
 	@Override
 	public int getValeur() {
-		return this.degats * (this.caracteristiqueForce.getNiveau() / 10);
+		// Sur le GDD de Julien V, c'était 10, j'ai mis 2 histoire que les armes fassent un minimum de dégâts.
+		return this.degats * (this.caracteristiqueForce.getNiveau() / 2);
 	}
 
 	@Override

@@ -22,7 +22,8 @@ public class StatistiqueDegatsMagique extends StatistiqueDegats {
 
 	@Override
 	public int getValeur() {
-		return this.degats * (this.caracteristiqueIntelligence.getNiveau() / 10);
+		// Sur le GDD de Julien V, c'était 10, j'ai mis 2 histoire que le soin de soins soit utile.
+		return this.degats * (this.caracteristiqueIntelligence.getNiveau() / 2);
 	}
 
 	@Override
