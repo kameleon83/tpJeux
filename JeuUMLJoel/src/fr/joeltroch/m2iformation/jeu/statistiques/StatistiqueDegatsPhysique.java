@@ -27,6 +27,6 @@ public class StatistiqueDegatsPhysique extends StatistiqueDegats {
 
 	@Override
 	public String toString() {
-		return "Dégât physique";
+		return "Dégâts physique";
 	}
 }

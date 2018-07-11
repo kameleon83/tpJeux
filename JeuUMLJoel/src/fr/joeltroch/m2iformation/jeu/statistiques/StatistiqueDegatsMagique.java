@@ -27,6 +27,6 @@ public class StatistiqueDegatsMagique extends StatistiqueDegats {
 
 	@Override
 	public String toString() {
-		return "Dégât magique";
+		return "Dégâts magique";
 	}
 }
