@@ -18,7 +18,7 @@ public abstract class Caracteristique {
 	 * @param nom Le nom de cette nouvelle caractéristique.
 	 * @param niveau Le niveau actuel de cette nouvelle caractéristique.
 	 */
-	public Caracteristique(String nom, int niveau) {
+	Caracteristique(String nom, int niveau) {
 		this.nom = nom;
 		this.niveau = niveau;
 	}
