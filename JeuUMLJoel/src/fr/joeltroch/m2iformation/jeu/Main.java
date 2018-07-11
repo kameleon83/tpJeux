@@ -14,6 +14,9 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author Joël Troch
  */
 public class Main {
+	/** Numéro de la vague en cours. */
+	private static int vagueActuelle = 1;
+
 	/** Unique instance de la classe Scanner pour toute l'application (singleton). */
 	private static final Scanner SCANNER = new Scanner(System.in);
 
@@ -43,6 +46,10 @@ public class Main {
 	 */
 	public static Scanner getScanner() {
 		return SCANNER;
+	}
+
+	public static int getVagueActuelle() {
+		return vagueActuelle;
 	}
 
 	/**
@@ -106,6 +113,10 @@ public class Main {
 	 */
 	public static int genererNombreAleatoire(int min, int max) {
 		return ThreadLocalRandom.current().nextInt(min, max + 1);
+	}
+
+	public static void incrementVagueActuelle() {
+		vagueActuelle++;
 	}
 
 	/**
