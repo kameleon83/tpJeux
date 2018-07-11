@@ -1,7 +1,5 @@
 package fr.joeltroch.m2iformation.jeu.caracteristiques;
 
-import fr.joeltroch.m2iformation.jeu.Configuration;
-
 /**
  * Classe de base pour toutes les caractéristiques.
  * @author Joël Troch
@@ -24,17 +22,11 @@ public abstract class Caracteristique {
 	}
 
 	/**
-	 * Incrémente de 1 le niveau actuel de cette caractéristique sous condition qu'elle ne dépasserait pas le niveau maximum.
-	 * @return <code>true</code> si le niveau a été incrémenté, <code>false</code> dans le cas contraire.
+	 * Ajoute une certaine quantité de niveaux.
+	 * @param niveaux La quantité de niveaux à rajouter.
 	 */
-	public boolean augmenterNiveau() {
-		if (this.niveau + 1 > Configuration.CARACTERISTIQUE_NIVEAU_MAX) {
-			System.out.println("Niveau maximal déjà atteint !");
-			return false;
-		}
-
-		this.niveau++;
-		return true;
+	public void addNiveau(int niveaux) {
+		this.niveau += niveaux;
 	}
 
 	public int getNiveau() {
