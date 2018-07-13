@@ -5,6 +5,8 @@ import fr.joeltroch.m2iformation.jeu.Configuration;
 // fdejzhfrhzkhjrkhfz
 // fdejzhfrhzkhjrkhfz
 // fdejzhfrhzkhjrkhfz
+// fdejzhfrhzkhjrkhfz
+// fdejzhfrhzkhjrkhfz
 
 /**
  * Classe de base pour toutes les caractéristiques.
