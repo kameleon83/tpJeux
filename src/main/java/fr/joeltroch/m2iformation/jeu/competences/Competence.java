@@ -21,6 +21,4 @@ public interface Competence {
 
 	@Override
 	String toString();
-
-	// IL VA DEFONCER MON CODE !!! AU SECOURS !!!
 }
