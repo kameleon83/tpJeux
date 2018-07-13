@@ -23,4 +23,10 @@ public interface Competence {
 	String toString();
 
 	// Salut tout le monde ^^
+	// Salut tout le monde ^^
+	// Salut tout le monde ^^
+	// Salut tout le monde ^^
+	// Salut tout le monde ^^
+	// Salut tout le monde ^^
+	// Salut tout le monde ^^
 }
