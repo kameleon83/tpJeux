@@ -25,6 +25,6 @@ public class StatistiqueVie extends Statistique {
 
 	@Override
 	public String toString() {
-		return "Vitalité";
+		return "Vie";
 	}
 }
