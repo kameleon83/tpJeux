@@ -12,14 +12,28 @@ import fr.joeltroch.m2iformation.jeu.statistiques.StatistiqueInitiative;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe qui représente une arène.
+ * @author Joël Troch
+ */
 public class LieuArene extends Lieu {
+	/** Liste des personnages dans cette arène. */
 	private final List<Personnage> personnages = new ArrayList<>();
 
+	/**
+	 * Crée une nouvelle arène avec un nom spécifique.
+	 * @param nom Le nom de l'arène.
+	 */
 	public LieuArene(String nom) {
 		super(nom);
 	}
 
-	private boolean finDePartie(List<Personnage> personnages) {
+	/**
+	 * Indique si la partie est terminée ou non (le joueur est mort ou tous les ennemis sont morts).
+	 * @param personnages La liste des personnages dans ce lieu.
+	 * @return <code>true</code> si le joueur ou les ennemis sont morts, <code>false</code> dans le cas contraire
+	 */
+	boolean finDePartie(List<Personnage> personnages) {
 		boolean joueurTrouve = false;
 		boolean ennemiTrouve = false;
 
@@ -37,6 +51,7 @@ public class LieuArene extends Lieu {
 		return !joueurTrouve || !ennemiTrouve;
 	}
 
+	@Override
 	public void parcourir(PersonnageJoueur joueur) {
 		this.personnages.clear();
 		if (App.getVagueActuelle() % 5 == 0) {

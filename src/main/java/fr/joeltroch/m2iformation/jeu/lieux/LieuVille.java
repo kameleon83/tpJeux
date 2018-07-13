@@ -9,15 +9,25 @@ import fr.joeltroch.m2iformation.jeu.personnages.PersonnagePNJAmiMarchand;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe qui représente une ville.
+ * @author Joël Troch
+ */
 public class LieuVille extends Lieu {
+	/** Liste des personnages dans cette ville. */
 	private final List<PersonnagePNJAmi> personnages = new ArrayList<>();
 
+	/**
+	 * Crée une nouvelle ville avec un nom spécifique.
+	 * @param nom Le nom de la ville.
+	 */
 	public LieuVille(String nom) {
 		super(nom);
 		this.personnages.add(new PersonnagePNJAmiGuerisseur("Jean-Louis Christophe Le Soigneur"));
 		this.personnages.add(new PersonnagePNJAmiMarchand("Jean-Louis David Le Marchand"));
 	}
 
+	@Override
 	public void parcourir(PersonnageJoueur joueur) {
 		boolean quitterVille = false;
 
