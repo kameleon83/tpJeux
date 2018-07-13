@@ -1,6 +1,6 @@
 package fr.joeltroch.m2iformation.jeu.competences;
 
-import fr.joeltroch.m2iformation.jeu.Main;
+import fr.joeltroch.m2iformation.jeu.App;
 import fr.joeltroch.m2iformation.jeu.equipements.Equipement;
 import fr.joeltroch.m2iformation.jeu.equipements.EquipementArme;
 import fr.joeltroch.m2iformation.jeu.personnages.Personnage;
@@ -62,8 +62,8 @@ public class CompetenceAttaquer implements Competence {
 		}
 
 		// Demande l'arme à attaquer
-		int choix = Main.getScanner().nextInt();
-		Main.getScanner().nextLine();
+		int choix = App.getScanner().nextInt();
+		App.getScanner().nextLine();
 
 		// Choix invalide
 		if (choix < 0 || choix > armesPossibles.size()) {
@@ -74,11 +74,11 @@ public class CompetenceAttaquer implements Competence {
 
 		// Liste les victimes
 		System.out.println("Quelle victime ?");
-		List<Personnage> victimesPossibles = Main.getListeCiblesPossibles(personnages);
+		List<Personnage> victimesPossibles = App.getListeCiblesPossibles(personnages);
 
 		// Quelle victime ?
-		choix = Main.getScanner().nextInt();
-		Main.getScanner().nextLine();
+		choix = App.getScanner().nextInt();
+		App.getScanner().nextLine();
 
 		// Choix invalide
 		if (choix < 0 || choix > victimesPossibles.size()) {

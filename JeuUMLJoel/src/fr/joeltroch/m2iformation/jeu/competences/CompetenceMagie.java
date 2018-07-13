@@ -1,6 +1,6 @@
 package fr.joeltroch.m2iformation.jeu.competences;
 
-import fr.joeltroch.m2iformation.jeu.Main;
+import fr.joeltroch.m2iformation.jeu.App;
 import fr.joeltroch.m2iformation.jeu.magie.MagieSort;
 import fr.joeltroch.m2iformation.jeu.personnages.Personnage;
 import fr.joeltroch.m2iformation.jeu.personnages.PersonnageJoueur;
@@ -51,8 +51,8 @@ public class CompetenceMagie implements Competence {
 		}
 
 		// Demande le sort à utiliser
-		int choix = Main.getScanner().nextInt();
-		Main.getScanner().nextLine();
+		int choix = App.getScanner().nextInt();
+		App.getScanner().nextLine();
 
 		// Choix invalide ou assigne le sort à utiliser
 		if (choix < 0 || choix > sortsPossibles.size()) {
@@ -63,11 +63,11 @@ public class CompetenceMagie implements Competence {
 
 		// Liste les cibles
 		System.out.println("Quelle cible ?");
-		List<Personnage> ciblesPossibles = Main.getListeCiblesPossibles(personnages);
+		List<Personnage> ciblesPossibles = App.getListeCiblesPossibles(personnages);
 
 		// Demande la cible
-		choix = Main.getScanner().nextInt();
-		Main.getScanner().nextLine();
+		choix = App.getScanner().nextInt();
+		App.getScanner().nextLine();
 
 		// Choix invalide
 		if (choix < 0 || choix > ciblesPossibles.size()) {

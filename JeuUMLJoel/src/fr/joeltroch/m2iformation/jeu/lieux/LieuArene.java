@@ -1,6 +1,6 @@
 package fr.joeltroch.m2iformation.jeu.lieux;
 
-import fr.joeltroch.m2iformation.jeu.Main;
+import fr.joeltroch.m2iformation.jeu.App;
 import fr.joeltroch.m2iformation.jeu.personnages.Personnage;
 import fr.joeltroch.m2iformation.jeu.personnages.PersonnageJoueur;
 import fr.joeltroch.m2iformation.jeu.personnages.PersonnagePNJEnnemi;
@@ -39,7 +39,7 @@ public class LieuArene extends Lieu {
 
 	public void parcourir(PersonnageJoueur joueur) {
 		this.personnages.clear();
-		if (Main.getVagueActuelle() % 5 == 0) {
+		if (App.getVagueActuelle() % 5 == 0) {
 			System.out.println("UN BOSS APPARAIT !!!");
 			this.personnages.add(new PersonnagePNJEnnemiZombie(true));
 		} else {
@@ -70,14 +70,14 @@ public class LieuArene extends Lieu {
 			}
 
 			if (s1 == null && s2 == null) { // Les 2 n'ont pas de statistique, aléatoire
-				return Main.genererNombreAleatoire(0, 1) == 0 ? -1 : 1;
+				return App.genererNombreAleatoire(0, 1) == 0 ? -1 : 1;
 			} else if (s1 == null) { // A n'a pas la statistique
 				return 1;
 			} else if (s2 == null) { // B n'a pas la statistique
 				return -1;
 			} else { // Les 2 ont la statistique
 				if (s1.getValeur() == s2.getValeur()) { // Valeurs identiques, aléatoire
-					return Main.genererNombreAleatoire(0, 1) == 0 ? -1 : 1;
+					return App.genererNombreAleatoire(0, 1) == 0 ? -1 : 1;
 				} else if (s1.getValeur() > s2.getValeur()) { // A > B
 					return -1;
 				} else { // A < B
@@ -102,16 +102,16 @@ public class LieuArene extends Lieu {
 		}
 
 		if (joueur.getSante() > 0) {
-			final int experienceADonner = Main.genererNombreAleatoire(25, 50);
-			final int piecesOrADonner = Main.genererNombreAleatoire(50, 100);
+			final int experienceADonner = App.genererNombreAleatoire(25, 50);
+			final int piecesOrADonner = App.genererNombreAleatoire(50, 100);
 
 			joueur.addPiecesOr(piecesOrADonner);
 			joueur.addPointsExperience(experienceADonner);
 
 			System.out.println("Vous avez gagné " + piecesOrADonner + " pièces d'or (PO) et " + experienceADonner + " points d'expérience (XP) !");
 
-			Main.incrementVagueActuelle();
-			System.out.println("Vague #" + Main.getVagueActuelle());
+			App.incrementVagueActuelle();
+			System.out.println("Vague #" + App.getVagueActuelle());
 		}
 	}
 }

@@ -1,6 +1,6 @@
 package fr.joeltroch.m2iformation.jeu.competences;
 
-import fr.joeltroch.m2iformation.jeu.Main;
+import fr.joeltroch.m2iformation.jeu.App;
 import fr.joeltroch.m2iformation.jeu.caracteristiques.Caracteristique;
 import fr.joeltroch.m2iformation.jeu.personnages.Personnage;
 import fr.joeltroch.m2iformation.jeu.personnages.PersonnageJoueur;
@@ -33,11 +33,11 @@ public class CompetenceObserver implements Competence {
 	public boolean preparerCompetenceJoueur(PersonnageJoueur joueur, List<Personnage> personnages) {
 		// Liste les cibles potentielles
 		System.out.println("Quelle cible ?");
-		List<Personnage> ciblesPossibles = Main.getListeCiblesPossibles(personnages);
+		List<Personnage> ciblesPossibles = App.getListeCiblesPossibles(personnages);
 
 		// Demande la cible
-		int choix = Main.getScanner().nextInt();
-		Main.getScanner().nextLine();
+		int choix = App.getScanner().nextInt();
+		App.getScanner().nextLine();
 
 		// Choix invalide
 		if (choix < 0 || choix > ciblesPossibles.size()) {

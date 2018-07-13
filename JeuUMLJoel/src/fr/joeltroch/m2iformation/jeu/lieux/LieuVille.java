@@ -1,6 +1,6 @@
 package fr.joeltroch.m2iformation.jeu.lieux;
 
-import fr.joeltroch.m2iformation.jeu.Main;
+import fr.joeltroch.m2iformation.jeu.App;
 import fr.joeltroch.m2iformation.jeu.personnages.PersonnageJoueur;
 import fr.joeltroch.m2iformation.jeu.personnages.PersonnagePNJAmi;
 import fr.joeltroch.m2iformation.jeu.personnages.PersonnagePNJAmiGuerisseur;
@@ -41,8 +41,8 @@ public class LieuVille extends Lieu {
 
 			// Choix joueur
 			System.out.println("\nChoix ?");
-			int choix = Main.getScanner().nextInt();
-			Main.getScanner().nextLine();
+			int choix = App.getScanner().nextInt();
+			App.getScanner().nextLine();
 
 			if (choix <= 0 || choix > i) {
 				System.out.println("Choix invalide !");

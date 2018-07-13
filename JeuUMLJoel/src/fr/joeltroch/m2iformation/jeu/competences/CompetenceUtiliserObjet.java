@@ -1,6 +1,6 @@
 package fr.joeltroch.m2iformation.jeu.competences;
 
-import fr.joeltroch.m2iformation.jeu.Main;
+import fr.joeltroch.m2iformation.jeu.App;
 import fr.joeltroch.m2iformation.jeu.equipements.Equipement;
 import fr.joeltroch.m2iformation.jeu.equipements.EquipementObjet;
 import fr.joeltroch.m2iformation.jeu.personnages.Personnage;
@@ -46,8 +46,8 @@ public class CompetenceUtiliserObjet implements Competence {
 		}
 
 		// Demande l'objet
-		int choix = Main.getScanner().nextInt();
-		Main.getScanner().nextLine();
+		int choix = App.getScanner().nextInt();
+		App.getScanner().nextLine();
 
 		// Choix invalide ou assigne l'objet à utiliserObjet
 		if (choix <= 0 || choix > objetsPossibles.size()) {
@@ -58,11 +58,11 @@ public class CompetenceUtiliserObjet implements Competence {
 
 		// Liste les cibles potentielles
 		System.out.println("Quelle cible ?");
-		List<Personnage> ciblesPossibles = Main.getListeCiblesPossibles(personnages);
+		List<Personnage> ciblesPossibles = App.getListeCiblesPossibles(personnages);
 
 		// Demande la cible
-		choix = Main.getScanner().nextInt();
-		Main.getScanner().nextLine();
+		choix = App.getScanner().nextInt();
+		App.getScanner().nextLine();
 
 		// Choix invalide
 		if (choix < 0 || choix > ciblesPossibles.size()) {

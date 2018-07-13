@@ -1,6 +1,6 @@
 package fr.joeltroch.m2iformation.jeu.equipements;
 
-import fr.joeltroch.m2iformation.jeu.Main;
+import fr.joeltroch.m2iformation.jeu.App;
 import fr.joeltroch.m2iformation.jeu.personnages.Personnage;
 
 /**
@@ -22,7 +22,7 @@ public class EquipementObjetPotionVie extends EquipementObjet {
 
 		// Ne dépasse pas la santé max.
 		int santeMaxVictime = victime.getSanteMax();
-		int soins = victime.getSante() + Main.genererNombreAleatoire(30, 35);
+		int soins = victime.getSante() + App.genererNombreAleatoire(30, 35);
 		if (soins > santeMaxVictime) {
 			soins = santeMaxVictime - victime.getSante();
 		}

@@ -1,6 +1,6 @@
 package fr.joeltroch.m2iformation.jeu.personnages;
 
-import fr.joeltroch.m2iformation.jeu.Main;
+import fr.joeltroch.m2iformation.jeu.App;
 import fr.joeltroch.m2iformation.jeu.equipements.*;
 
 import java.util.ArrayList;
@@ -38,8 +38,8 @@ public class PersonnagePNJAmiMarchand extends PersonnagePNJAmi {
 
 			// Choix joueur
 			System.out.println("\nVous avez " + joueur.getPiecesOr() + " pièces d'or (PO). Choix ?");
-			int choix = Main.getScanner().nextInt();
-			Main.getScanner().nextLine();
+			int choix = App.getScanner().nextInt();
+			App.getScanner().nextLine();
 
 			switch (choix) {
 				case 1:
@@ -52,8 +52,8 @@ public class PersonnagePNJAmiMarchand extends PersonnagePNJAmi {
 						}
 
 						// Demande l'objet
-						choix = Main.getScanner().nextInt();
-						Main.getScanner().nextLine();
+						choix = App.getScanner().nextInt();
+						App.getScanner().nextLine();
 
 						if (choix > 0 && choix <= this.objetsAVendre.size()) {
 							Equipement objetAchat = this.objetsAVendre.get(choix - 1);
@@ -84,8 +84,8 @@ public class PersonnagePNJAmiMarchand extends PersonnagePNJAmi {
 						}
 
 						// Demande l'objet
-						choix = Main.getScanner().nextInt();
-						Main.getScanner().nextLine();
+						choix = App.getScanner().nextInt();
+						App.getScanner().nextLine();
 
 						if (choix > 0 && choix <= joueur.getListeEquipements().size()) {
 							Equipement objetVente = joueur.getListeEquipements().get(choix - 1);

@@ -1,6 +1,6 @@
 package fr.joeltroch.m2iformation.jeu.equipements;
 
-import fr.joeltroch.m2iformation.jeu.Main;
+import fr.joeltroch.m2iformation.jeu.App;
 import fr.joeltroch.m2iformation.jeu.personnages.Personnage;
 
 /**
@@ -22,7 +22,7 @@ public class EquipementObjetPotionMana extends EquipementObjet {
 
 		// Ne dépasse pas la mana max.
 		int manaMaxVictime = victime.getManaMax();
-		int mana = victime.getMana() + Main.genererNombreAleatoire(30, 35);
+		int mana = victime.getMana() + App.genererNombreAleatoire(30, 35);
 		if (mana > manaMaxVictime) {
 			mana = manaMaxVictime - victime.getMana();
 		}

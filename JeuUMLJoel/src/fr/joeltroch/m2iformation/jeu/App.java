@@ -21,7 +21,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * Classe principale de l'application.
  * @author Joël Troch
  */
-public class Main {
+public class App {
 	/** Numéro de la vague en cours. */
 	private static int vagueActuelle = 1;
 

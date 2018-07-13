@@ -1,6 +1,6 @@
 package fr.joeltroch.m2iformation.jeu.magie;
 
-import fr.joeltroch.m2iformation.jeu.Main;
+import fr.joeltroch.m2iformation.jeu.App;
 import fr.joeltroch.m2iformation.jeu.caracteristiques.Caracteristique;
 import fr.joeltroch.m2iformation.jeu.caracteristiques.CaracteristiqueIntelligence;
 import fr.joeltroch.m2iformation.jeu.personnages.Personnage;
@@ -33,7 +33,7 @@ public class MagieSortSoins extends MagieSort {
 		}
 
 		// Calcule les "dégâts" de base (technique de développement classique dans les jeux vidéos)
-		StatistiqueDegatsMagique degats = new StatistiqueDegatsMagique(Main.genererNombreAleatoire(this.degatsMin, this.degatsMax),
+		StatistiqueDegatsMagique degats = new StatistiqueDegatsMagique(App.genererNombreAleatoire(this.degatsMin, this.degatsMax),
 				caracteristiqueIntelligence);
 		int resultat = degats.getValeur();
 

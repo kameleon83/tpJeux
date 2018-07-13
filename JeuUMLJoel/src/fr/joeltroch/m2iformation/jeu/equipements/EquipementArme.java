@@ -1,6 +1,6 @@
 package fr.joeltroch.m2iformation.jeu.equipements;
 
-import fr.joeltroch.m2iformation.jeu.Main;
+import fr.joeltroch.m2iformation.jeu.App;
 import fr.joeltroch.m2iformation.jeu.caracteristiques.Caracteristique;
 import fr.joeltroch.m2iformation.jeu.caracteristiques.CaracteristiqueForce;
 import fr.joeltroch.m2iformation.jeu.personnages.Personnage;
@@ -61,7 +61,7 @@ public abstract class EquipementArme extends Equipement {
 		}
 
 		// Applique les dégâts et affiche le résultat
-		StatistiqueDegatsPhysique degats = new StatistiqueDegatsPhysique(Main.genererNombreAleatoire(this.degatsMin, this.degatsMax),
+		StatistiqueDegatsPhysique degats = new StatistiqueDegatsPhysique(App.genererNombreAleatoire(this.degatsMin, this.degatsMax),
 				caracteristiqueForce);
 		int resultat = degats.getValeur();
 		victime.setSante(victime.getSante() - resultat);

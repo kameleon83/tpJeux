@@ -1,7 +1,7 @@
 package fr.joeltroch.m2iformation.jeu.personnages;
 
 import fr.joeltroch.m2iformation.jeu.Configuration;
-import fr.joeltroch.m2iformation.jeu.Main;
+import fr.joeltroch.m2iformation.jeu.App;
 import fr.joeltroch.m2iformation.jeu.caracteristiques.*;
 import fr.joeltroch.m2iformation.jeu.competences.*;
 import fr.joeltroch.m2iformation.jeu.equipements.Equipement;
@@ -83,7 +83,7 @@ public class PersonnageJoueur extends Personnage {
 			this.niveau++;
 			this.experienceMax = this.niveau * Configuration.JOUEUR_EXPERIENCE_PAR_NIVEAU;
 			this.pointsExperience = 0;
-			Main.depenserPointsCompetences(Configuration.JOUEUR_NIVEAU_SUP_QUANTITE_POINTS_CARACTERISTIQUES, this);
+			App.depenserPointsCompetences(Configuration.JOUEUR_NIVEAU_SUP_QUANTITE_POINTS_CARACTERISTIQUES, this);
 		}
 	}
 
@@ -100,8 +100,8 @@ public class PersonnageJoueur extends Personnage {
 			}
 
 			System.out.println("\nChoix ?");
-			int choix = Main.getScanner().nextInt();
-			Main.getScanner().nextLine();
+			int choix = App.getScanner().nextInt();
+			App.getScanner().nextLine();
 
 			if (choix > 0 && choix <= this.listeCompetences.size()) {
 				if (this.listeCompetences.get(choix - 1).preparerCompetenceJoueur(this, personnages)) {
