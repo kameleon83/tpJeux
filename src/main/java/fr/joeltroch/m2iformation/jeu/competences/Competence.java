@@ -22,5 +22,5 @@ public interface Competence {
 	@Override
 	String toString();
 
-	//jhdejkzhfkzrhjkz
+	// Salut tout le monde ^^
 }

@@ -1,12 +1,6 @@
 package fr.joeltroch.m2iformation.jeu.caracteristiques;
 
 import fr.joeltroch.m2iformation.jeu.Configuration;
-// dejzhfijerhfihidkjheikhjrfiekhriferhie
-// fdejzhfrhzkhjrkhfz
-// fdejzhfrhzkhjrkhfz
-// fdejzhfrhzkhjrkhfz
-// fdejzhfrhzkhjrkhfz
-// fdejzhfrhzkhjrkhfz
 
 /**
  * Classe de base pour toutes les caractéristiques.
